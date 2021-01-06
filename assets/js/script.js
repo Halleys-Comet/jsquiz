@@ -1,29 +1,29 @@
-// create function to start quiz timer that starts at sec
-var time = 30;
+// create function to start quiz timer that starts at 60 sec
+var time = 60;
+var timerInterval = window.setInterval("timer()", 1000);
+
 var buttonEl = document.querySelector("#start-btn");
 
 
-function timer() {
+
+// Start timer function
+
+function timer(ButtonEl) {
+    document.getElementById("countdown").innerHTML = time-=1;
+
+    if (time <= 0) {
+        timeEnd();
+    }
+};
+
+function timeEnd() {
+    window.clearInterval(timerInterval);
+};
   
-    time = time - 1;
-    if (time > time) {
-        countdown.innerHTML = 30;
-    }
-
-    if (time < 1) {
-        window.clearInterval(update);
-    }
-
-    buttonEl.addEventListener('click', funtion() {
-        timer()
-    }) 
-    
-    };
-    
-
-update = setInterval("timer()", 1000);
 
 
+// start Button timer
+buttonEl.addEventListener("click", timer);
 
 
 
