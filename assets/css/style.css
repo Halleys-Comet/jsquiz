@@ -6,10 +6,26 @@
       
 }
 
-.main-content {
+#main-content {
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
   margin: 40px auto;
   width: 40%;
+}
+
+#quiz-content{
+  display: none;
+}
+
+.content-style {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  margin: 40px auto;
+  width: 40%;
+}
+
+.btn {
+  display: block;
 }
