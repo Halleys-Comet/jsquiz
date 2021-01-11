@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Quiz</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <header class=header-container>
+        <div>
+            <button id="high-scores">View High Scores</button>
+        </div>
+
+        <div>
+            <h4 id="timerdisplay">Time:<span id="countdown">60</span></h4>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <h1>Coding Quiz Challenge</h1>
+        <p>Try to answer the following code-related questions within the time limit.
+            Keep in mind that incorrect answers will penalize your score/time by ten seconds!
+        </p>
+        <!-- Quiz Start Button -->
+        <div>
+            <button class="btn" id="start-btn">Start Quiz</button>
+        </div>
+    </main>
+
+    <main id="quiz-content" class="content-style">
+        <h1 id="question"></h1>
+        <div id="choices">
+            <button id="btn0" class="answerBtns"><span id="choice0"></span></button>
+            <button id="btn1" class="answerBtns"><span id="choice1"></span></button>
+            <button id="btn2" class="answerBtns"><span id="choice2"></span></button>
+            <button id="btn3" class="answerBtns"><span id="choice3"></span></button>
+        </div>
+        <div id= "correct-answer">Correct!</div>
+        <div id = "wrong-answer">Wrong!</div>
+    </main>
+    <form id="score" class="game-over">
+        <h2>End Game!</h2>
+        <p>Final Score</p>
+        <input type="text" name="initials" id="initials" placeholder ="Enter Initials"/>
+        <button id="submit-score" type="submit">Submit</button>
+
+    </form>
+
+    <section id="high-score-container" class="score-list">
+        <h2>High Scores</h2>
+        <div id="rankings"></div>
+    </section>
+
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
