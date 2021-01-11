@@ -49,3 +49,16 @@
   margin: 40px auto;
   width: 40%;
 }
+
+#high-score-container {
+  display: none;
+ }
+ 
+ .score-list {
+   display: flex;
+   flex-flow: column wrap;
+   justify-content: center;
+   margin: 40px auto;
+   width: 40%;
+ }
+ 

@@ -11,7 +11,9 @@ var correctAnswer = document.querySelector('#correct-answer');
 var questionCounter = 0;
 var correct = 0;
 var submit = document.querySelector('#submit-score');
-var initials = document.querySelector('#initials');
+var scoreBtn = document.querySelector('#high-scores');
+var highScores = document.querySelector('#high-score-container');
+var rankings = document.querySelector('#rankings');
 
 var $bnt0 = document.querySelector('#btn0');
 var $bnt1 = document.querySelector('#btn1');
@@ -25,6 +27,7 @@ $bnt0.addEventListener('click', checkForCorrect);
 $bnt1.addEventListener('click', checkForCorrect);
 $bnt2.addEventListener('click', checkForCorrect);
 $bnt3.addEventListener('click', checkForCorrect);
+scoreBtn.addEventListener('click', showScores);
 
 
 
@@ -130,11 +133,11 @@ function checkForCorrect(event) {
     console.log(event.target.dataset.correct)
     if (event.target.dataset.correct) {
         //increment correct
-        correctAnswer.style.display = "inherit"
+        // correctAnswer.style.display = "inherit"
 
     } else {
         //remove some time
-        wrongAnswer.style.display = "inherit"
+        // wrongAnswer.style.display = "inherit"
         time -= 10;
         
         
@@ -143,6 +146,14 @@ function checkForCorrect(event) {
     
 }
 
+// high score list button funcion
+
+function showScores () {
+    highScores.style.display = 'inherit';
+    quizContent.style.display ='none';
+    gameOver.style.display ='none';
+    
+};
 
 
 // create form to enter name
@@ -153,12 +164,23 @@ function endGame () {
    
 }
 
+// show scores in highscore list 
+
+function renderScores () {
+    localStorage.getItem('initials');
+    localStorage.getItem('time');
+}
+
+
 // store scores
 submit.addEventListener('click', function(event) {
     event.preventDefault();
-    localStorage.setItem('initials', initials);
+    localStorage.setItem('initials', JSON.stringify(initials));
     localStorage.setItem('time',time);
+    renderScores();
 });
+
+
 
 
 
