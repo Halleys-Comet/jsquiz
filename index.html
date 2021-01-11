@@ -11,7 +11,7 @@
 <body>
     <header class=header-container>
         <div>
-            <a class=highscores>View High Scores</a>
+            <button class=highscores>View High Scores</button>
         </div>
 
         <div>
@@ -38,9 +38,16 @@
             <button id="btn2" class="answerBtns"><span id="choice2"></span></button>
             <button id="btn3" class="answerBtns"><span id="choice3"></span></button>
         </div>
-        <div id= "correct-answer"></div>
-        <div id = "wrong-answer"></div>
+        <div id= "correct-answer">Correct!</div>
+        <div id = "wrong-answer">Wrong!</div>
     </main>
+    <form id="score" class="game-over">
+        <h2>End Game!</h2>
+        <p>Final Score</p>
+        <input type="text" name="initials" id="initials" placeholder ="Enter Initials"/>
+        <button id="submit-score" type="submit">Submit</button>
+
+    </form>
 
     <script src="./assets/js/script.js"></script>
 </body>

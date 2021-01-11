@@ -1,12 +1,17 @@
 var time = 60;
 var timerInterval;
-var buttonEl = document.querySelector("#start-btn");
-var countdown = document.querySelector("#countdown");
-var mainContent = document.querySelector("#main-content");
-var quizContent = document.querySelector("#quiz-content");
+var buttonEl = document.querySelector('#start-btn');
+var countdown = document.querySelector('#countdown');
+var mainContent = document.querySelector('#main-content');
+var quizContent = document.querySelector('#quiz-content');
+var gameOver = document.querySelector('#score')
 var quizQuestion = document.querySelector('#question');
+var wrongAnswer = document.querySelector('#wrong-answer');
+var correctAnswer = document.querySelector('#correct-answer');
 var questionCounter = 0;
 var correct = 0;
+var submit = document.querySelector('#submit-score');
+var initials = document.querySelector('#initials');
 
 var $bnt0 = document.querySelector('#btn0');
 var $bnt1 = document.querySelector('#btn1');
@@ -16,7 +21,6 @@ var $bnt3 = document.querySelector('#btn3');
 // event listeners 
 
 buttonEl.addEventListener('click', startQuiz);
-
 $bnt0.addEventListener('click', checkForCorrect);
 $bnt1.addEventListener('click', checkForCorrect);
 $bnt2.addEventListener('click', checkForCorrect);
@@ -25,7 +29,7 @@ $bnt3.addEventListener('click', checkForCorrect);
 
 
 
-// array of questions
+// array of questions++
 
 var question = [
     {
@@ -63,7 +67,7 @@ var question = [
         {text:'onclick', correct:true},
         {text:'onchange', correct:false},
         {text:'onmouseclick', correct:false},
-        {text:'onmouseover', correct:true},
+        {text:'onmouseover', correct:false},
     ]
 }
 
@@ -92,6 +96,7 @@ function timerHandler() {
 
     if(time === 0){
         clearInterval(timerInterval)
+        endGame()
     }
 }
 
@@ -115,34 +120,46 @@ function setNextQuestion(){
 
     } else {
         //game over no new questions
+        endGame();
     }
 
-// 
+
 }
 
 function checkForCorrect(event) {
     console.log(event.target.dataset.correct)
     if (event.target.dataset.correct) {
-        //do the true
-        event === true;
         //increment correct
-        time += 20;
-    } else {
-        //do the false
-        //remove some time
-        time -= 15;
+        correctAnswer.style.display = "inherit"
 
-    }
-    setNextQuestion()
+    } else {
+        //remove some time
+        wrongAnswer.style.display = "inherit"
+        time -= 10;
+        
+        
+     }
+     setNextQuestion()
+    
 }
 
 
 
+// create form to enter name
 
+function endGame () {
+    quizContent.style.display = "none";
+    gameOver.style.display = "inherit";
+   
+}
 
-// function timeEnd() {
-//     window.clearInterval(timerInterval);
-// };
+// store scores
+submit.addEventListener('click', function(event) {
+    event.preventDefault();
+    localStorage.setItem('initials', initials);
+    localStorage.setItem('time',time);
+});
+
 
 
 

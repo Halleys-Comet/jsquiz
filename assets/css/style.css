@@ -26,6 +26,26 @@
   width: 40%;
 }
 
-.btn {
+.answerBtns {
   display: block;
+}
+
+#correct-answer {
+  display: none;
+}
+
+#wrong-answer {
+  display: none;
+}
+
+#score {
+ display: none;
+}
+
+.game-over {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  margin: 40px auto;
+  width: 40%;
 }
